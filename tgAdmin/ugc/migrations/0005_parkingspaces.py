@@ -13,7 +13,6 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ParkingSpaces',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('busy_spaces', models.IntegerField(default=0, verbose_name='Занято мест')),
                 ('all_spaces', models.IntegerField(default=100, verbose_name='Все места')),
             ],
