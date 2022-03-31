@@ -1,0 +1,4 @@
+aiogram==2.19
+django==4.0.3
+psycopg2>=2.8
+
