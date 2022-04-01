@@ -25,7 +25,7 @@ async def echo(message: types.Message):
     if fullname and not fullname[2]:
         await message.answer(f'Добро пожаловать {fullname[0].title()} {fullname[1].title()}', reply_markup=button.search)
     elif fullname and fullname[2] == 1:
-        await message.answer(f"""Вы заблокированны 
+        await message.answer(f"""Вы заблокированный
 Причина блокировки: {fullname[3]}""", reply_markup=button.ReplyKeyboardRemove())
     else:
         await message.answer('Вы не авторизованы', reply_markup=button.authorize)

@@ -43,4 +43,5 @@ class SpaceAdd(admin.ModelAdmin):
 
 
 admin.site.unregister(Group)
-admin.site.site_header = "Админка Стоянки"
+admin.site.site_header = "UzAuto Parking system"
+admin.site.site_title = "UzAuto Parking system"
