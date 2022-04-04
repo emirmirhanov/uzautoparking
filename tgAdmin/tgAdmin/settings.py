@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'tgAdmin.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
+        'NAME': 'uzauto_parking_db',
+        'USER': 'uzauto_parking_user',
+        'PASSWORD': 'LIATYnJc3gy49ybm',
+        'HOST': 'parking_db',
         'PORT': '5432',
     }
 }
