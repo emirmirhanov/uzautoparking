@@ -1,12 +1,11 @@
 version: "3.9"
-   
 services:
   postgres:
     image: dpage/pgadmin4
     restart: always
     environment:
-        PGADMIN_DEFAULT_EMAIL: admin@admin.com
-        PGADMIN_DEFAULT_PASSWORD: postgres
+        PGADMIN_DEFAULT_EMAIL: info@uzavtosanoat.uz
+        PGADMIN_DEFAULT_PASSWORD: sanCtfAXeZP95HcZ
     ports:
       - "8001:80"
     depends_on:
@@ -16,9 +15,9 @@ services:
     volumes:
       - db_volume:/var/lib/postgresql/data
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_NAME=uzauto_parking_db
+      - POSTGRES_USER=uzauto_parking_user
+      - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
   web:
     build: .
     command: python tgAdmin/manage.py runserver 0.0.0.0:8000
@@ -27,9 +26,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_NAME=uzauto_parking_db
+      - POSTGRES_USER=uzauto_parking_user
+      - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
     depends_on:
       - db
 volumes:

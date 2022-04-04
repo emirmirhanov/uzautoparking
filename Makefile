@@ -6,3 +6,7 @@ down:
 	@docker-compose down
 tg-run:
 	@docker-compose exec -d web python main.py
+dump:
+	@docker exec -i scraping_postgres_1 /bin/bash -c "PGPASSWORD=a123456 pg_dump --username scraping scraping" > ~/scraping/dump.sql
+restore:
+	@docker exec -i scraping_postgres_1 /bin/bash -c "PGPASSWORD=a123456 psql --username scraping scraping" < ~/scraping/dump.sql
