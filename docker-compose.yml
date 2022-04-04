@@ -15,7 +15,7 @@ services:
     volumes:
       - parking_db_volume:/var/lib/postgresql/data
     environment:
-      - POSTGRES_NAME=uzauto_parking_db
+      - POSTGRES_DATABASE=uzauto_parking_db
       - POSTGRES_USER=uzauto_parking_user
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
   parking_web:
@@ -26,7 +26,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - POSTGRES_NAME=uzauto_parking_db
+      - POSTGRES_DATABASE=uzauto_parking_db
       - POSTGRES_USER=uzauto_parking_user
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
     depends_on:
