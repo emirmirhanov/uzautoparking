@@ -7,7 +7,7 @@ down:
 tg-run:
 	@docker-compose exec -d web python main.py
 superaadmin:
-	@docker-compose exec paarking_web python tgAdmin/manage.py createsuperuser
+	@docker-compose exec parking_web python tgAdmin/manage.py createsuperuser
 dump:
 	@docker exec -i scraping_postgres_1 /bin/bash -c "PGPASSWORD=a123456 pg_dump --username scraping scraping" > ~/scraping/dump.sql
 restore:
