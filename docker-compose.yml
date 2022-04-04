@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  postgres:
+  parking_postgres:
     image: dpage/pgadmin4
     restart: always
     environment:
@@ -10,15 +10,15 @@ services:
       - "8001:80"
     depends_on:
       - db
-  db:
+  parking_db:
     image: postgres
     volumes:
-      - db_volume:/var/lib/postgresql/data
+      - parking_db_volume:/var/lib/postgresql/data
     environment:
       - POSTGRES_NAME=uzauto_parking_db
       - POSTGRES_USER=uzauto_parking_user
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
-  web:
+  parking_web:
     build: .
     command: python tgAdmin/manage.py runserver 0.0.0.0:8000
     volumes:
@@ -32,4 +32,4 @@ services:
     depends_on:
       - db
 volumes:
-  db_volume:
+  parking_db_volume:
