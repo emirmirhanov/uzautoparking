@@ -9,7 +9,7 @@ services:
     ports:
       - "8001:80"
     depends_on:
-      - db
+      - parking_db
   parking_db:
     image: postgres
     volumes:
@@ -30,6 +30,6 @@ services:
       - POSTGRES_USER=uzauto_parking_user
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
     depends_on:
-      - db
+      - parking_db
 volumes:
   parking_db_volume:
