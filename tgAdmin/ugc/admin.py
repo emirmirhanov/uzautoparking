@@ -3,9 +3,13 @@ from .models import Companies, Cars, Employees, Security, ParkingSpaces
 from .forms import CompaniesForm, CarForm, EmployeesForm, SecurityForm
 from django.contrib.auth.models import Group
 
+class EmployeesStack(admin.StackedInline):
+    model = Employees
+    extra = 0
 
 @admin.register(Companies)
 class UserAdmin(admin.ModelAdmin):
+    inlines = [EmployeesStack,]
     search_fields = ("name__startswith", )
     fields = ('name',)
     list_display = ('name',)
@@ -19,9 +23,13 @@ class CarAdd(admin.ModelAdmin):
     list_display = ('model', 'num_car', 'color', 'driver')
     form = CarForm
 
+class CarStack(admin.StackedInline):
+    model = Cars
+    extra = 0
 
 @admin.register(Employees)
 class EmployeeAdd(admin.ModelAdmin):
+    inlines = [CarStack,]
     search_fields = ("name__startswith", )
     fields = ('name', 'surname', 'patronymic', 'company')
     list_display = ('name', 'surname', 'patronymic', 'company')
@@ -43,5 +51,5 @@ class SpaceAdd(admin.ModelAdmin):
 
 
 admin.site.unregister(Group)
-admin.site.site_header = "UzAuto Parking system"
-admin.site.site_title = "UzAuto Parking system"
+admin.site.site_header = 'UzAuto'
+admin.site.site_title = 'UzAuto Parking System'

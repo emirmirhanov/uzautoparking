@@ -13,9 +13,9 @@ class Companies(models.Model):
 
 
 class Employees(models.Model):
-	name = models.TextField(verbose_name='Имя')
-	surname = models.TextField(verbose_name='Фамилие')
-	patronymic = models.TextField(verbose_name='Отчество', blank=True, null=True)
+	name = models.CharField(verbose_name='Имя', max_length=255)
+	surname = models.CharField(verbose_name='Фамилия', max_length=255)
+	patronymic = models.CharField(verbose_name='Отчество', blank=True, null=True, max_length=255)
 	company = models.ForeignKey(Companies, on_delete=models.CASCADE, verbose_name='Компания')
 
 	def __str__(self):
@@ -27,9 +27,9 @@ class Employees(models.Model):
 
 
 class Cars(models.Model):
-	model = models.TextField(verbose_name='Модель Автомобиля')
-	num_car = models.TextField(verbose_name='Номер Автомобиля')
-	color = models.TextField(verbose_name='Цвет Автомобиля')
+	model = models.CharField(verbose_name='Модель Автомобиля', max_length=255)
+	num_car = models.CharField(verbose_name='Номер Автомобиля', max_length=255)
+	color = models.CharField(verbose_name='Цвет Автомобиля', max_length=255)
 	driver = models.ForeignKey(Employees, on_delete=models.CASCADE, verbose_name='Водитель')
 
 	def __str__(self):
