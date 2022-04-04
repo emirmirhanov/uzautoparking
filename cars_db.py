@@ -2,7 +2,7 @@ import psycopg2
 
 
 def connect_db():
-    base = psycopg2.connect(host='parking_db', dbname='uzauto_parking_db', user='uzauto_parking_user', password='LIATYnJc3gy49ybm')
+    base = psycopg2.connect(host='parking_db', dbname='uzauto_parking_user', user='uzauto_parking_user', password='LIATYnJc3gy49ybm')
     return base
 
 
