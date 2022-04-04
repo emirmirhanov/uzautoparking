@@ -5,7 +5,7 @@ build:
 down:
 	@docker-compose down
 tg-run:
-	@docker-compose exec -d web python main.py
+	@docker-compose exec -d parking_web python main.py
 superaadmin:
 	@docker-compose exec parking_web python tgAdmin/manage.py createsuperuser
 dump:
