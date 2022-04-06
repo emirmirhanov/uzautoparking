@@ -10,6 +10,8 @@ services:
       - "8001:80"
     depends_on:
       - parking_db
+    networks:
+      - parking_network
   parking_db:
     image: postgres
     volumes:
@@ -18,6 +20,8 @@ services:
       - POSTGRES_DATABASE=uzauto_parking_db
       - POSTGRES_USER=uzauto_parking_user
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
+    networks:
+      - parking_network
   parking_web:
     build: .
     command: python tgAdmin/manage.py runserver 0.0.0.0:8000
@@ -31,5 +35,9 @@ services:
       - POSTGRES_PASSWORD=LIATYnJc3gy49ybm
     depends_on:
       - parking_db
+    networks:
+      - parking_network
 volumes:
   parking_db_volume:
+networks:
+  parking_network:
